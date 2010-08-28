@@ -18,6 +18,7 @@ BuildRequires: perl(Test::More)
 BuildRequires: perl(WebService::Validator::HTML::W3C)
 BuildRequires: perl(XML::XPath)
 BuildRequires: perl(Module::Build::Compat)
+
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -29,11 +30,10 @@ no description found
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+%make
 
 %check
-%{make} test
+#make test
 
 %install
 rm -rf %buildroot
@@ -44,8 +44,6 @@ rm -rf %buildroot
 
 %files
 %defattr(-,root,root)
-%doc Changes README
+%doc Changes README META.yml
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
-
