@@ -1,15 +1,15 @@
 %define upstream_name    Padre-Plugin-HTML
-%define upstream_version 0.10
+%define upstream_version 0.14
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Release:	1
 
 Summary:	L<Padre> and HTML
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Padre/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Padre/Padre-Plugin-HTML-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(HTML::Lint)
@@ -29,14 +29,14 @@ HTML plugin for Padre
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-perl Makefile.PL INSTALLDIRS=vendor
-%make
+perl Build.PL installdirs=vendor
+./Build
 
 %check
 #make test
 
 %install
-%makeinstall_std
+./Build install destdir=%{buildroot}
 
 %files
 %doc Changes README META.yml
@@ -61,3 +61,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Thu Sep 17 2009 cpan2dist 0.09-1mdv
 - initial mdv release, generated with cpan2dist
+
