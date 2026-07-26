@@ -1,15 +1,13 @@
 %define upstream_name    Padre-Plugin-HTML
-%define upstream_version 0.14
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	4
+Version:	0.14
+Release:	5
 
 Summary:	L<Padre> and HTML
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://padre.perlide.org
-Source0:	https://cpan.metacpan.org/authors/id/A/AZ/AZAWAWI/Padre-Plugin-HTML-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/A/AZ/AZAWAWI/Padre-Plugin-HTML-%{version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(HTML::Lint)
@@ -26,7 +24,7 @@ BuildArch:	noarch
 HTML plugin for Padre
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Build.PL installdirs=vendor
